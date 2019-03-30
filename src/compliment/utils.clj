@@ -1,5 +1,6 @@
 (ns compliment.utils
   "Functions and utilities for source implementations."
+  (:require [clojure.java.classpath :as cp])
   (:import java.io.File java.nio.file.Files
            (java.util.jar JarFile JarEntry)
            java.util.function.Consumer))
@@ -103,10 +104,7 @@
   []
   (if android-vm?
     ()
-    (mapcat #(.split (or (System/getProperty %) "") File/pathSeparator)
-            ["sun.boot.class.path" "java.ext.dirs" "java.class.path"
-             ;; This is where Boot keeps references to dependencies.
-             "fake.class.path"])))
+    (doall (map #(.getAbsolutePath %) (cp/classpath)))))
 
 (defn- symlink?
   "Checks if the given file is a symlink."

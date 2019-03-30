@@ -1,4 +1,4 @@
-(defproject compliment "0.3.9"
+(defproject io.titanoboa/compliment "0.3.9-SNAPSHOT"
   :description "The Clojure completion library you deserve"
   :url "https://github.com/alexander-yakushev/compliment"
   :license {:name "Eclipse Public License"
@@ -6,7 +6,8 @@
   :profiles {:dev {:dependencies [[org.clojure/clojure "1.10.0"]
                                   [criterium "0.4.4"]
                                   [cloverage "1.0.13"]
-                                  [fudje "0.9.7"]]
+                                  [fudje "0.9.7"]
+                                  [org.clojure/java.classpath "0.2.3"]]
                    :plugins [[jonase/eastwood "0.3.5"]
                              [lein-shell "0.5.0"]]
                    :eastwood {:namespaces [:source-paths]}
